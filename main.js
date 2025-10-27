@@ -29,14 +29,14 @@ function removenote(button) {
 // update the note
 function updatenote(button) {
   let listnote = button.parentElement.firstChild.textContent.trim();
-  noteInput.value = listnote;
-  notes = notes.filter((note) => note.trim() !== listnote);
-  if (notes.includes(noteInput.value)) {
-    alert("this note is already exists");
+  let newnote = prompt("please enter the new note", listnote);
+  if (newnote !== null && newnote.trim() !== "") {
+    // تحديث المصفوفة في localStorage
+    notes = notes.map((note) => (note.trim() === listnote ? newnote : note));
+    localStorage.setItem("notes", JSON.stringify(notes));
   }
-  localStorage.setItem("notes", JSON.stringify(notes));
-  button.parentElement.remove();
 }
+
 
 // add background light and dark
 let containers = document.getElementById("container");
@@ -67,4 +67,5 @@ window.onload = function() {
     notelight();
   }
 };
+
 
