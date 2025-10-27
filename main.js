@@ -41,16 +41,17 @@ function updatenote(button) {
 // add background light and dark
 let containers = document.getElementById("container");
 let notesLists = document.getElementById("notesList");
-
+let body = document.body;
 function notedark() {
-  containers.style.background = "black";
+  containers.style.background = "#333";
   containers.style.color = "white";
   notesLists.style.color = "#333";
+  body.style.background = "#555";
   localStorage.setItem("theme", "dark");
 }
-
 function notelight() {
   containers.style.background = "#fff";
+  body.style.background = "#f4f4f4";
   containers.style.color = "#333";
   localStorage.setItem("theme", "light");
 }
@@ -67,5 +68,6 @@ window.onload = function() {
     notelight();
   }
 };
+
 
 
