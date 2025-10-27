@@ -5,6 +5,19 @@ let dark = document.getElementById("dark");
 let light = document.getElementById("light");
 let container = document.getElementById("container");
 let notes = JSON.parse(localStorage.getItem("notes")) || []; // localstorge the notes
+// عند تحميل الصفحة، نتحقق من الوضع المخزن
+window.onload = function() {
+    notes.forEach((note) => {
+    notesList.innerHTML += `<li> ${note} <button onclick="removenote(this)">remove</button> <button class = 'update' onclick="updatenote(this)"> update </button>  </li>`;
+  });
+  const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    notedark();
+  } else {
+    notelight();
+  }
+};
+
 // add new note in the notesList
 function addnewnotes() {
   let note = noteInput.value;
@@ -56,18 +69,7 @@ function notelight() {
   localStorage.setItem("theme", "light");
 }
 
-// عند تحميل الصفحة، نتحقق من الوضع المخزن
-window.onload = function() {
-    notes.forEach((note) => {
-    notesList.innerHTML += `<li> ${note} <button onclick="removenote(this)">remove</button> <button class = 'update' onclick="updatenote(this)"> update </button>  </li>`;
-  });
-  const theme = localStorage.getItem("theme");
-  if (theme === "dark") {
-    notedark();
-  } else {
-    notelight();
-  }
-};
+
 
 
 
