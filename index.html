@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قائمة الملاحظات</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="container" class="container">
+    <button onclick="notedark()" id="dark" class="dark">dark</button>
+    <button onclick="notelight()" id="light" class="light">light</button>
+    <h1>📝 قائمة الملاحظات</h1>
+    <textarea id="noteInput" placeholder="اكتب ملاحظتك هنا..."></textarea>
+    <button onclick="addnewnotes()" id="addNote">إضافة ملاحظة</button>
+    <ul id="notesList"></ul>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
